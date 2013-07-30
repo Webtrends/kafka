@@ -28,6 +28,7 @@ default[:kafka][:chroot_suffix] = "brokers"
 
 default[:kafka][:num_partitions] = 1
 default[:kafka][:broker_id] = nil
+default[:kafka][:brokers] = nil
 default[:kafka][:broker_host_name] = nil
 default[:kafka][:port] = 9092
 default[:kafka][:threads] = nil
