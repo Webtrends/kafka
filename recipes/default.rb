@@ -26,13 +26,13 @@ java_home   = node['java']['java_home']
 user = node[:kafka][:user]
 group = node[:kafka][:group]
 
-if node[:kafka][:broker_id].nil? || node[:kafka][:broker_id].empty?
-		node.set[:kafka][:broker_id] = node[:ipaddress].gsub(".","")
+if node[:kafka][:brokers].nil? || node[:kafka][:brokers].empty?
+  node.default[:kafka][:broker_id] = node[:ipaddress].gsub(".","")
+else
+  node.default[:kafka][:broker_id] = (node[:kafka][:brokers].index{|broker| broker == node[:fqdn] || broker == node[:ipaddress] || broker == node[:hostname]} ) + 1
 end
 
-if node[:kafka][:broker_host_name].nil? || node[:kafka][:broker_host_name].empty?
-		node.set[:kafka][:broker_host_name] = node[:fqdn]
-end
+node.default[:kafka][:broker_host_name] = node[:fqdn]
 
 log "Broker id: #{node[:kafka][:broker_id]}"
 log "Broker name: #{node[:kafka][:broker_host_name]}"
