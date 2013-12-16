@@ -20,7 +20,7 @@
 ############################# Server Basics #############################
 
 # The id of the broker. This must be set to a unique integer for each broker.
-brokerid=<%=node["kafka"]["broker_id"]%>
+broker.id=<%=node["kafka"]["broker_id"]%>
 
 # Hostname the broker will advertise to consumers. If not set, kafka will use the value returned
 # from InetAddress.getLocalHost().  If there are multiple interfaces getLocalHost
@@ -120,7 +120,7 @@ enable.zookeeper=<%= @zookeeper_pairs ? (@zookeeper_pairs.length > 0 ? true : fa
 # server. e.g. "127.0.0.1:3000,127.0.0.1:3001,127.0.0.1:3002".
 # You can also append an optional chroot string to the urls to specify the
 # root directory for all kafka znodes.
-zk.connect=<%= @zookeeper_pairs.join(",") %>
+zookeeper.connect=<%= @zookeeper_pairs.join(",") %>
 
 # Timeout in ms for connecting to zookeeper
-zk.connectiontimeout.ms=<%= node[:kafka][:zk_connectiontimeout] %>
+zookeeper.connection.timeout.ms=<%= node[:kafka][:zk_connectiontimeout] %>
