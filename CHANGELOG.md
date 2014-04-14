@@ -1,3 +1,11 @@
+## 1.0.22
+* Updated some attribute names
+* Updated jar libs path
+
+## 1.0.21
+* Modified tarball extension and download_file path to follow the directory structure of the repository
+* Made Scala version an attribute
+
 ## 1.0.20
 * Added better check is zookeeper_pairs contains anything to decide is
   kafka should register in zookeeper. This is needed for collection-1.1
