@@ -1,3 +1,7 @@
+## 1.0.22
+* Updated some attribute names
+* Updated jar libs path
+
 ## 1.0.21
 * Modified tarball extension and download_file path to follow the directory structure of the repository
 * Made Scala version an attribute
