@@ -22,16 +22,16 @@
 
 # configure brokers statically
 # format: brokerid1:host1:port1,brokerid2:host2:port2 ...
-broker.list=0:localhost:9092
+#broker.list=0:localhost:9092
 
 # discover brokers from ZK
-#zk.connect=
+zookeeper.connect=<%= @zookeeper_pairs.join(",") %>
 
 # zookeeper session timeout; default is 6000
 #zk.sessiontimeout.ms=
 
 # the max time that the client waits to establish a connection to zookeeper; default is 6000
-#zk.connectiontimeout.ms
+zookeeper.connection.timeout.ms=<%= node[:kafka][:zk_connectiontimeout] %>
 
 # name of the partitioner class for partitioning events; default partition spreads data randomly
 #partitioner.class=
